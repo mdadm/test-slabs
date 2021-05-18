@@ -22,7 +22,7 @@ export function useActualProductList() {
 
       const allProducts = dataArray.map(item => getProductFromResponse(item));
       setItemList(allProducts);
-    });
+    }).catch(e => console.error(e));
   }, [setItemList]);
 
   const actualProducts = itemList.filter(product => !product.isDeleted)

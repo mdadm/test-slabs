@@ -65,3 +65,8 @@ code {
 .sub-products-item {
     margin-bottom: 12px;
 }
+
+.error-message {
+    color: brown;
+    text-align: center;
+}
