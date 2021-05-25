@@ -1,6 +1,6 @@
 import { ProductsList } from "./components/ProductsList";
 
-function App() {
+function App(): JSX.Element {
   return <ProductsList />
 }
 

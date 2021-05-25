@@ -5,7 +5,7 @@ type ProductCardProps = {
   product: Product;
 };
 
-export const ProductCard = ({ product }: ProductCardProps) => {
+export const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
   return (
     <div className="tablinks-item">
       <h2>{product.name}</h2>

@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
-import { Product, ResponseData } from "../types/types";
 import axios from "axios";
+import { useEffect, useState } from "react";
+
+import { Product, ResponseData } from "../types/types";
 import { getProductFromResponse } from "../utils/helper";
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config();
 
 declare let process: {
@@ -11,7 +13,7 @@ declare let process: {
   }
 };
 
-export function useActualProductList() {
+export function useActualProductList():Product[] {
   const [itemList, setItemList] = useState<Array<Product>>([]);
 
   useEffect(() => {

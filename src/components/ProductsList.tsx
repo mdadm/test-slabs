@@ -1,15 +1,16 @@
+import { IconButton } from "@material-ui/core";
 import React, { useState } from "react";
+
 import { useActualProductList } from "../hooks/useActualProductList";
-import { ProductCard } from "./ProductCard";
-import { SubProduct } from "./SubProduct";
 import { ErrorMessage } from "./ErrorMessage";
 import { ExpandButton } from "./ExpandButton";
-import { IconButton } from "@material-ui/core";
+import { ProductCard } from "./ProductCard";
+import { SubProduct } from "./SubProduct";
 
-export function ProductsList() {
+export function ProductsList(): JSX.Element {
   const [activeProductIndex, setActiveProductIndex] = useState(-1);
 
-  const openTab = (key: any) => {
+  const openTab = (key: number) => {
     let activeTabIndex = key;
     key === activeProductIndex && (activeTabIndex = -1);
 

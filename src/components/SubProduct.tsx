@@ -1,8 +1,9 @@
-import { Product } from "../types/types";
 import React from "react";
+
+import { Product } from "../types/types";
 import { getDescription } from "../utils/helper";
 
-export const SubProduct = (product: Product) => (
+export const SubProduct = (product: Product): JSX.Element => (
   <div className="accordion">
     <div className="sub-products-panel">
       <h3>Sub Products</h3>

@@ -1,6 +1,6 @@
 import { Product, ResponseData } from "../types/types";
 
-export function getProductFromResponse(resp: ResponseData) {
+export function getProductFromResponse(resp: ResponseData):Product {
     return {
       accessType: resp.AccessType,
       language: resp.Language,
@@ -16,6 +16,6 @@ export function getProductFromResponse(resp: ResponseData) {
     };
 }
 
-export function getDescription(product: Product) {
+export function getDescription(product: Product): string {
   return product.descriptionru || product.descriptionen || 'No description yet'
 }
