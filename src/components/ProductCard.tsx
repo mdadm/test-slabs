@@ -7,7 +7,7 @@ type ProductCardProps = {
 
 export const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
   return (
-    <div className="tablinks-item">
+    <div>
       <h2>{product.name}</h2>
       {getDescription(product)}
     </div>

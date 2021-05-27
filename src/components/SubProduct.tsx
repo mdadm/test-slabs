@@ -1,25 +1,50 @@
 import React from "react";
+import styled from "styled-components";
 
 import { Product } from "../types/types";
 import { getDescription } from "../utils/helper";
 
+const AccordionWrapper = styled.div`
+
+`;
+
+const SubProductsPanelWrapper = styled.div`
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: #eee;
+    padding: 24px;
+    margin-bottom: 24px;
+`;
+
+const SubProductWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: left;
+`;
+
+const SubProductsItemFieldWrapper = styled.div`
+    margin-bottom: 12px;
+`;
+
 export const SubProduct = (product: Product): JSX.Element => (
-  <div className="accordion">
-    <div className="sub-products-panel">
+  <AccordionWrapper>
+    <SubProductsPanelWrapper>
       <h3>Sub Products</h3>
       {product.childProducts?.length ? product.childProducts.map((childProduct, key) => (
-          <div key={key} className="sub-products">
+          <SubProductWrapper key={key}>
             <h4>{childProduct.name}</h4>
-            <div className="sub-products-item">
+            <SubProductsItemFieldWrapper>
               Type: {childProduct.type}
-            </div>
-            <div className="sub-products-item">
+            </SubProductsItemFieldWrapper>
+            <SubProductsItemFieldWrapper>
               Description: {getDescription(product)}
-            </div>
-          </div>
+            </SubProductsItemFieldWrapper>
+          </SubProductWrapper>
         )) :
-        <div className="sub-products-item">No sub products yet</div>
+        <SubProductsItemFieldWrapper>No sub products yet</SubProductsItemFieldWrapper>
       }
-    </div>
-  </div>
+    </SubProductsPanelWrapper>
+  </AccordionWrapper>
 );
+//

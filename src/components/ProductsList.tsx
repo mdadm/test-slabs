@@ -1,11 +1,33 @@
 import { IconButton } from "@material-ui/core";
 import React, { useState } from "react";
+import styled from 'styled-components';
 
 import { useActualProductList } from "../hooks/useActualProductList";
 import { ErrorMessage } from "./ErrorMessage";
 import { ExpandButton } from "./ExpandButton";
 import { ProductCard } from "./ProductCard";
 import { SubProduct } from "./SubProduct";
+
+
+const AppHeaderStyled = styled.div`
+    text-align: center;
+    margin-bottom: 48px;
+`;
+
+const ProductPanelStyled = styled.div`
+    justify-content: space-around;
+    flex-direction: column;
+    margin-left: 48px;
+    margin-right: 48px;
+`;
+
+const ProductsStyled = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: left;
+    margin: 0 auto 24px;
+`;
 
 export function ProductsList(): JSX.Element {
   const [activeProductIndex, setActiveProductIndex] = useState(-1);
@@ -21,12 +43,12 @@ export function ProductsList(): JSX.Element {
 
   return (
     <div>
-      <div className="app-header">
+      <AppHeaderStyled>
         <h1>Products</h1>
-      </div>
+      </AppHeaderStyled>
       {productsList.length ? productsList.map((item, key) => (
-          <div className="products-panel" key={`products-panel-${key}`}>
-            <div key={key}
+          <ProductPanelStyled key={`products-panel-${key}`}>
+            <ProductsStyled key={key}
                  className={`products${key === activeProductIndex ? ' active' : ''}`}
                  data-index={key}
             >
@@ -36,13 +58,13 @@ export function ProductsList(): JSX.Element {
                   {ExpandButton(key, activeProductIndex)}
                 </IconButton>
               </div>
-            </div>
+            </ProductsStyled>
             <div>
               {activeProductIndex === key && (
                 <SubProduct {...productsList[activeProductIndex]} />)}
             </div>
             <hr/>
-          </div>
+          </ProductPanelStyled>
         )) :
         <ErrorMessage
           message="Something went wrong!"
