@@ -1,7 +1,12 @@
-import { ProductsList } from "./components/ProductsList";
+import { useActualProductList } from "./hooks/useActualProductList";
+import { ProductsPage } from "./components/ProductsPage";
 
-function App(): JSX.Element {
-  return <ProductsList />
+const App = () => {
+  useActualProductList();
+
+  return (
+    <ProductsPage />
+  )
 }
 
 export default App;

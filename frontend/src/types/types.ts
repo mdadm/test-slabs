@@ -14,13 +14,13 @@ export type ResponseData = {
 
 export type Product = {
   accessType: string | null,
-  language: string,
-  name: string,
+  language: string | null,
+  Name: string,
   parentID: string | null,
   productID: string,
   relation: string | null,
   type: string | null
-  colorscheme: string,
+  colorscheme: string | null,
   descriptionen: string | null,
   descriptionru: string | null,
   isDeleted: boolean,

@@ -1,6 +1,5 @@
 {
    "type": "postgres",
-   "synchronize": true,
    "logging": false,
    "entities": [
       "src/entity/**/*.ts"

@@ -13,25 +13,25 @@ export class Product {
     @Column()
     Name: string;
 
-    @Column()
+    @Column({ nullable: true })
     Language: string;
 
-    @Column()
+    @Column({ nullable: true })
     ParentID: string;
 
-    @Column()
+    @Column({ nullable: true })
     Relation: string;
 
-    @Column()
+    @Column({ nullable: true })
     Type: string;
 
-    @Column()
+    @Column({ nullable: true })
     colorscheme: string;
 
-    @Column()
+    @Column({ nullable: true })
     descriptionen: string;
 
-    @Column()
+    @Column({ nullable: true })
     descriptionru: string;
 
     @Column()
