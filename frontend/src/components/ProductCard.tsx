@@ -8,7 +8,7 @@ type ProductCardProps = {
 export const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
   return (
     <div>
-      <h2>{product.name}</h2>
+      <h2>{product.Name}</h2>
       {getDescription(product)}
     </div>
   )

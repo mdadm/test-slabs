@@ -3,23 +3,25 @@ import { useEffect, useState } from "react";
 
 import { Product, ResponseData } from "../types/types";
 import { getProductFromResponse } from "../utils/helper";
+import { addProductList } from "../reducers/ProductReducer";
+import { store } from "../reducers";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config();
 
 declare let process: {
   env: {
-    REACT_APP_URL: string
+    REACT_APP_BACKEND_URL: string
   }
 };
 
-export function useActualProductList():Product[] {
+export function useActualProductList() {
   const [itemList, setItemList] = useState<Array<Product>>([]);
 
   useEffect(() => {
-    const apiUrl = process.env.REACT_APP_URL;
+    const apiUrl = process.env.REACT_APP_BACKEND_URL;
 
-    apiUrl && axios.get(apiUrl).then((resp) => {
+    apiUrl && axios.get(`${apiUrl}/data`).then((resp) => {
       const dataArray: ResponseData[] = resp.data;
 
       const allProducts = dataArray.map(item => getProductFromResponse(item));
@@ -39,5 +41,8 @@ export function useActualProductList():Product[] {
     );
   });
 
-  return productsList;
+  productsList.sort((product1, product2) =>
+    product1.Name.localeCompare(product2.Name));
+
+  store.dispatch(addProductList(productsList));
 }

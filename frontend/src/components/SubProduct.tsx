@@ -33,7 +33,7 @@ export const SubProduct = (product: Product): JSX.Element => (
       <h3>Sub Products</h3>
       {product.childProducts?.length ? product.childProducts.map((childProduct, key) => (
           <SubProductWrapper key={key}>
-            <h4>{childProduct.name}</h4>
+            <h4>{childProduct.Name}</h4>
             <SubProductsItemFieldWrapper>
               Type: {childProduct.type}
             </SubProductsItemFieldWrapper>
